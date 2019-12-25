@@ -6,6 +6,10 @@ export const environment = {
   production: false,
   test: true,
   i18nPrefix: '',
+  whatsapp: {
+    instanceId: 88474,
+    token: 'wd1otzgrlrp6okuv'
+  },
   versions: {
     app: packageJson.version,
     angular: packageJson.dependencies['@angular/core'],

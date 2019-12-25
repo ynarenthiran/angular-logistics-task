@@ -4,6 +4,7 @@ import { filter, debounceTime, take } from 'rxjs/operators';
 import { TranslateService } from '@ngx-translate/core';
 import { Observable } from 'rxjs';
 import { ROUTE_ANIMATIONS_ELEMENTS, NotificationService } from '../../../core/core.module';
+import { ContactUsService } from '../contact-us.service';
 
 @Component({
   selector: 'anms-contact-us',
@@ -27,7 +28,8 @@ export class ContactUsComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private translate: TranslateService,
-    private notificationService: NotificationService
+    private notificationService: NotificationService,
+    private service: ContactUsService
   ) { }
 
   ngOnInit() {
@@ -37,30 +39,18 @@ export class ContactUsComponent implements OnInit {
     );
   }
 
-  update(form: any) {
-    
-  }
-
-  save() {
-    
-  }
-
-  submit() {
-    if (this.form.valid) {
-      this.save();
-      this.notificationService.info(
-        (this.form.value.requestGift
-          ? this.translate.instant('anms.examples.form.text4')
-          : this.translate.instant('anms.examples.form.text5')) +
-          ' : ' +
-          this.translate.instant('anms.examples.form.text6')
-      );
-    }
-  }
-
-  reset() {
-    this.form.reset();
-    this.form.clearValidators();
-    this.form.clearAsyncValidators();
+  send(data) {
+    const d = {
+      phone: data.mobile,
+      body: data.message
+    };
+    this.service.sendMessage(d).subscribe((res) => {
+      this.notificationService.info('Message Sent Successfully');
+      this.form.reset();
+    }, (err) => {
+      console.error(err);
+      this.notificationService.error('Server Error');
+      this.form.reset();
+    })
   }
 }
