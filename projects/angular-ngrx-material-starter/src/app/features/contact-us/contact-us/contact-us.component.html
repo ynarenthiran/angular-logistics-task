@@ -64,7 +64,7 @@
               <div class="col-md-12">
                 <mat-card class="contact-us">
                   <span class="d-flex justify-content-center align-items-baseline">
-                    <h2>Get in Touch</h2>
+                    <h3>Get in Touch</h3>
                   </span>
                   <div class="row">
                     <mat-form-field class="col" [ngClass]="routeAnimationsElements">
@@ -98,7 +98,7 @@
                     <mat-form-field class="col" [ngClass]="routeAnimationsElements">
                       <textarea matInput placeholder="Message"
                         formControlName="message" minlength="10" maxlength="1000" cdkTextareaAutosize
-                        #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="5" cdkAutosizeMaxRows="5"></textarea>
+                        #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="2" cdkAutosizeMaxRows="2"></textarea>
                       <mat-hint align="end">{{form.get('message').value?.length}} /
                         1000</mat-hint>
                       <mat-error *ngIf="form.get('message').hasError('required')">
@@ -114,7 +114,7 @@
                   </div>
                   <div class="row buttons d-flex justify-content-center pad">
                     <button mat-raised-button color="primary"
-                      [ngClass]="routeAnimationsElements">
+                      [ngClass]="routeAnimationsElements" [disabled]="form.invalid">
                       Send
                     </button>
                   </div>
