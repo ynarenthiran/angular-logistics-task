@@ -1,0 +1,162 @@
+<div class="background">
+  <div class="gradient">
+    <h1>Contact</h1>
+    <div class="container-fluid">
+      <div class="row justify-content-center">
+        <div class="col-xs-4 col-lg-4 col-md-12 col-sm-12">
+          <div class="row justify-content-center">
+            <div class="col-md-12">
+              <mat-card class="contact-us contact">
+                <span style="margin-top: 45px;" class="d-flex justify-content-center align-items-baseline">
+                  <h2>Head Office</h2>
+                </span>
+                <div class="container-fluid">
+                  <div>
+                    <b>Address: </b>
+                    268-1, 1st Floor, Jalan Besar/KU 13, <br/>Pekan Kapar, 42200 Klang, Selangor, Malaysia
+                  </div>
+                  <div>
+                    <b>Phone: </b> <a href="tel:+60332501060">+ 603 3250 1060</a>
+                  </div>
+                  <div>
+                    <b>Fax: </b> <a href="fax:+60332501090">+ 603 3250 1090</a>
+                  </div>
+                  <div>
+                    <b>Email: </b>
+                    <br/> <a style="padding-left:2em" href="mailto:glowfreight@malaysiaforwarder.com">Marketing</a>
+                    <br/> <a style="padding-left:2em" href="mailto:sales@malaysiaforwarder.com">Customer Service</a>
+                    <br/> <a style="padding-left:2em" href="mailto:finance@malaysiaforwarder.com">Accounts</a>
+                  </div>
+                </div>
+              </mat-card>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-8 col-lg-8 col-md-12 col-sm-12">
+          <div class="row justify-content-center">
+            <div class="col-md-12">
+              <mat-card class="contact-us">
+                <span class="d-flex justify-content-center align-items-baseline">
+                  <h3>View Map</h3>
+                </span>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3983.835924248182!2d101.36979951426281!3d3.1379999540973964!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31cc56422b9a2a27%3A0x3ba324981e1e571e!2sJalan%20Besar%2C%2042200%20Kapar%2C%20Selangor%2C%20Malaysia!5e0!3m2!1sen!2sin!4v1577293094784!5m2!1sen!2sin" frameborder="0" width="100%" height="90%" allowfullscreen></iframe>
+              </mat-card>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-4 col-lg-4 col-md-12 col-sm-12">
+          <div class="row justify-content-center">
+            <div class="col-md-12">
+              <mat-card class="contact-us contact">
+                <span class="d-flex justify-content-center align-items-baseline question">
+                  <p>Have a<br>Question ?</p>
+                </span>
+                <div class="container-fluid">
+                  <p class="question text-style">Our experts look forward to the opportunity of answering any queries and finding the best solutions for your requirements.</p>
+                </div>
+              </mat-card>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-8 col-lg-8 col-md-12 col-sm-12">
+          <form [formGroup]="form" (ngSubmit)="submit()">
+            <div class="row justify-content-center">
+              <div class="col-md-12">
+                <mat-card class="contact-us">
+                  <span class="d-flex justify-content-center align-items-baseline">
+                    <h2>Get in Touch</h2>
+                  </span>
+                  <div class="row">
+                    <mat-form-field class="col" [ngClass]="routeAnimationsElements">
+                      <input matInput placeholder="Name" formControlName="name">
+                      <mat-error *ngIf="form.get('name').invalid">
+                        Name
+                        is required
+                      </mat-error>
+                    </mat-form-field>
+                    <mat-form-field class="col" [ngClass]="routeAnimationsElements">
+                      <input matInput type="number" placeholder="Mobile" formControlName="mobile">
+                      <mat-error *ngIf="form.get('mobile').invalid">
+                        Mobile
+                        is required
+                      </mat-error>
+                    </mat-form-field>
+                  </div>
+                  <div class="row">
+                    <mat-form-field class="col" [ngClass]="routeAnimationsElements">
+                      <input matInput placeholder="Email" formControlName="email" type="email">
+                      <mat-error *ngIf="form.get('email').hasError('required')">
+                        Email
+                        is required
+                      </mat-error>
+                      <mat-error *ngIf="form.get('email').hasError('email')">
+                        Email
+                        {{ 'anms.examples.form.error2' | translate }}</mat-error>
+                    </mat-form-field>
+                  </div>
+                  <div class="row">
+                    <mat-form-field class="col" [ngClass]="routeAnimationsElements">
+                      <textarea matInput placeholder="Message"
+                        formControlName="message" minlength="10" maxlength="1000" cdkTextareaAutosize
+                        #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="5" cdkAutosizeMaxRows="5"></textarea>
+                      <mat-hint align="end">{{form.get('message').value?.length}} /
+                        1000</mat-hint>
+                      <mat-error *ngIf="form.get('message').hasError('required')">
+                        Message is required
+                      </mat-error>
+                      <mat-error *ngIf="form.get('message').hasError('minlength')">
+                        Message should be longer than 10
+                      </mat-error>
+                      <mat-error *ngIf="form.get('message').hasError('maxlength')">
+                        Message should be smaller than 1000
+                      </mat-error>
+                    </mat-form-field>
+                  </div>
+                  <div class="row buttons d-flex justify-content-center pad">
+                    <button mat-raised-button color="primary"
+                      [ngClass]="routeAnimationsElements">
+                      Send
+                    </button>
+                  </div>
+                </mat-card>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <!-- <div class="container-fluid row">
+        Thank you for your interest in the services of Glow Freight Services (M) Sdn Bhd.
+        <br/>
+        <br/>
+        We are your Logistics Solution Provider and our team of air, land and sea freight forwarders will be able to
+        customize the perfect integrated logistics support and solution suited to meet your requirements.
+        <br/>
+        <br/>
+        We welcome all enquiries - shipping rates, shipping destinations, cargo consolidation, et cetera.
+        <br/>
+        <br/>
+        You can use our QUOTE REQUEST FORM to send us your query.
+        <br/>
+        <br/>
+        Telephone
+        (603) 3250 1050 - Hunting Line
+        (603) 3250 1060
+        (603) 3250 1070
+        <br/>
+        <br/>
+        Fax
+        (603) 3250 1090
+        <br/>
+        <br/>
+        Email
+        Marketing
+        Customer Services
+        Accounts
+        <br/>
+        <br/>
+        Address - view online map
+        No 268, Jalan Besar KU/13, 42200 Kapar, Klang Selangor.
+    </div> -->
+  </div>
+</div>

@@ -4,34 +4,44 @@ import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'about',
+    redirectTo: 'home',
     pathMatch: 'full'
   },
   {
-    path: 'about',
+    path: 'home',
     loadChildren: () =>
-      import('./features/about/about.module').then(m => m.AboutModule)
+      import('./features/home/home.module').then(m => m.HomeModule)
   },
   {
-    path: 'feature-list',
+    path: 'contact-us',
     loadChildren: () =>
-      import('./features/feature-list/feature-list.module').then(
-        m => m.FeatureListModule
-      )
+      import('./features/contact-us/contact-us.module').then(m => m.ContactUsModule)
   },
-  {
-    path: 'settings',
-    loadChildren: () =>
-      import('./features/settings/settings.module').then(m => m.SettingsModule)
-  },
-  {
-    path: 'examples',
-    loadChildren: () =>
-      import('./features/examples/examples.module').then(m => m.ExamplesModule)
-  },
+  // {
+  //   path: 'about',
+  //   loadChildren: () =>
+  //     import('./features/about/about.module').then(m => m.AboutModule)
+  // },
+  // {
+  //   path: 'feature-list',
+  //   loadChildren: () =>
+  //     import('./features/feature-list/feature-list.module').then(
+  //       m => m.FeatureListModule
+  //     )
+  // },
+  // {
+  //   path: 'settings',
+  //   loadChildren: () =>
+  //     import('./features/settings/settings.module').then(m => m.SettingsModule)
+  // },
+  // {
+  //   path: 'examples',
+  //   loadChildren: () =>
+  //     import('./features/examples/examples.module').then(m => m.ExamplesModule)
+  // },
   {
     path: '**',
-    redirectTo: 'about'
+    redirectTo: 'home'
   }
 ];
 
@@ -46,4 +56,4 @@ const routes: Routes = [
   ],
   exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

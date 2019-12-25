@@ -35,13 +35,15 @@ export class AppComponent implements OnInit {
   logo = require('../../assets/logo.png');
   languages = ['en', 'de', 'sk', 'fr', 'es', 'pt-br', 'zh-cn', 'he'];
   navigation = [
-    { link: 'about', label: 'anms.menu.about' },
-    { link: 'feature-list', label: 'anms.menu.features' },
-    { link: 'examples', label: 'anms.menu.examples' }
+    // { link: 'about', label: 'anms.menu.about' },
+    // { link: 'feature-list', label: 'anms.menu.features' },
+    // { link: 'examples', label: 'anms.menu.examples' }
+    { link: 'home', label: 'Home' },
+    { link: 'contact-us', label: 'Contact Us' }
   ];
   navigationSideMenu = [
     ...this.navigation,
-    { link: 'settings', label: 'anms.menu.settings' }
+    // { link: 'settings', label: 'anms.menu.settings' }
   ];
 
   isAuthenticated$: Observable<boolean>;
@@ -84,5 +86,9 @@ export class AppComponent implements OnInit {
 
   onLanguageSelect({ value: language }) {
     this.store.dispatch(actionSettingsChangeLanguage({ language }));
+  }
+  titleSettings(title) {
+    console.info(`title`);
+    return title;
   }
 }

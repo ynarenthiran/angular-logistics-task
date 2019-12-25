@@ -17,6 +17,8 @@
 @import './app/app/app.component.scss-theme';
 @import './app/shared/big-input/big-input/big-input.component.scss-theme';
 @import './app/features/about/about/about.component.scss-theme';
+@import './app/features/home/home/home.component.scss-theme';
+@import './app/features/contact-us/contact-us/contact-us.component.scss-theme';
 @import './app/features/examples/notifications/components/notifications.component.scss-theme';
 @import './app/features/examples/todos/components/todos-container.component.scss-theme';
 @import './app/features/examples/stock-market/components/stock-market-container.component.scss-theme';
@@ -28,6 +30,8 @@
   @include anms-styles-reset-theme($theme);
   @include anms-app-component-theme($theme);
   @include anms-about-component-theme($theme);
+  @include anms-home-component-theme($theme);
+  @include anms-contact-us-component-theme($theme);
   @include anms-big-input-component-theme($theme);
   @include anms-notifications-component-theme($theme);
   @include anms-todos-container-component-theme($theme);
@@ -55,4 +59,21 @@
 .nature-theme {
   @include angular-material-theme($anms-nature-theme);
   @include custom-components-theme($anms-nature-theme);
+}
+
+.title {
+  font-weight: bolder;
+    font-size: larger;
+}
+.oxford-blue {
+  color: rgb(0, 0, 255);
+}
+
+.signal-red {
+  color: rgb(187,64,57);
+}
+
+.text-style {
+  text-align: justify;
+    text-indent: 2em;
 }
